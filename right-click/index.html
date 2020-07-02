@@ -1,0 +1,38 @@
+<style type="text/css">
+    .hide-menu {
+        display: none;
+    }
+    #right-menu {
+        border: 1px solid black;
+        background-color: white;
+        padding: 7px;
+    }
+</style>
+ 
+<div id="test-div">
+    <a href="#">Link 1</a><br />
+    <a href="#">Link 2</a><br />
+    <a href="#">Link 3</a><br />
+</div>
+<div class="hide-menu" id="right-menu">
+    White <br />
+    Green <br />
+    Yellow <br />
+    Orange <br />
+    Red <br />
+    Blue <br />
+</div>
+ 
+<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+    if (document.getElementById('test-div').addEventListener) {
+        document.getElementById('test-div').addEventListener('contextmenu', function(e) {
+            jQuery("#right-menu").toggleClass("hide-menu");
+            jQuery("#right-menu").css({ position: "absolute", top: e.pageY, left: e.pageX });
+            e.preventDefault();
+        }, false);
+    }
+    jQuery(document).bind("click", function(event) {
+        document.getElementById("right-menu").className = "hide-menu";
+    });
+</script>

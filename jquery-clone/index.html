@@ -1,0 +1,36 @@
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+    jQuery(document).on('click', '.addPerson', function(e) {
+        jQuery('.person:first').clone().appendTo('#container');
+        jQuery('.textboxes:last').find('input[type="text"]').val('');
+        jQuery('.textboxes:last').find('input[type="checkbox"]').prop('checked', false);
+        jQuery('.textboxes:last').find('input[type="radio"]').prop('checked', false);
+        jQuery('.removePerson:last').attr('disabled', false);
+        return false;
+    });
+
+    jQuery(document).on('click', '.removePerson', function(e) {
+        if((jQuery('.removePerson').length) >= 2) {
+        jQuery(this).closest('.person').remove();
+        return false;
+    }
+});
+</script>
+ 
+<form method="post" action="">
+    <div class="person">
+        <span class="textboxes">
+            <input type="text" name="fname[]" class="fname" />
+            <input type="text" name="lname[]" class="lname" />
+            <label><input type="checkbox" name="member[]" class="member" /> Member </label>
+            <label><input type="radio" name="color_r[]" class="color_r" /> R </label>
+            <label><input type="radio" name="color_g[]" class="color_g" /> G </label>
+            <label><input type="radio" name="color_b[]" class="color_b" /> B </label>
+        </span>
+        <select name="gender[]" class="gender"><option value="Male">Male</option><option value="Female">Female</option></select>
+        <input type="button" class="addPerson" value="Add" />
+        <input type="button" class="removePerson" value="Remove" disabled />
+    </div>
+    <div id="container"></div>
+    <br /><input type="submit" name="submit" value=" Save " />
+</form>

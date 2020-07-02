@@ -1,0 +1,41 @@
+<title>Ajax jQuery Image Upload</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+    function submitForm() {
+        jQuery('#loading').show();
+        var fd = new FormData(document.getElementById("fileform"));
+        jQuery.ajax({
+          url: "upload.php",
+          type: "POST",
+          data: fd,
+          processData: false, 
+          contentType: false
+        }).done(function( data ) {
+            if(data != 'Invalid File/Size') {
+                jQuery('#output').html('<img src="'+data+'" />');
+                var tmp_arr = jQuery('#fileinput').val().split('\\');
+                jQuery('#filename').val(tmp_arr[2]);
+                jQuery('#filename').show();
+                jQuery('#success').fadeTo( "slow" , 0.5, function() { });
+            }
+            else {
+                alert(data);
+            }
+            jQuery('#loading').hide();
+        });
+        return false;
+    }
+</script>
+ 
+<h4>Ajax jQuery Image Upload</h4>
+<form method="post" id="fileform" name="fileinfo" >
+    <label for="fileinput">
+        <span style="cursor: pointer; padding: 2px; border: 1px solid #dddddd; width: auto;">Click to Upload Image</span>
+        <input type="file" name="file" id="fileinput" onchange="submitForm();" style="display: none;" />
+    </label>
+    <span id="loading" style="display: none;">Loading...</span>
+    <span id="success" style="display: none;">File Uploaded</span>
+    <input id="filename" type="text" style="display: none;" />
+</form><br />
+<div id="output"></div>

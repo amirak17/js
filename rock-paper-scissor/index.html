@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+	<title>Rock Paper Scissor</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="font-family: Arial;">
+	<div style="text-align: center;">
+		<h1>Rock Paper Scissor</h1>
+		<img id="rps" src="" style="border: 3px solid #000; border-radius: 30px;" /><br /><br />
+		<button onclick="location.reload();" style="font-size: 30px; border-radius: 15px; padding: 20px; outline: 0;">Again!</button>
+	</div>
+	<script type="text/javascript">
+		var x = Math.random();
+		if(x >= 0 && x <= 0.333) {
+			document.getElementById('rps').src = "rock.png";
+		}
+		if(x >= 0.334 && x <= 0.667) {
+			document.getElementById('rps').src = 'paper.png';
+		}
+		if(x >= 0.668 && x <= 1) {
+			document.getElementById('rps').src = 'scissor.png';
+		}
+	</script>
+</body>
+</html>

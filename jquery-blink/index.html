@@ -1,0 +1,25 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ 
+<div id="blink">Jquery Flash Text Effect</div>
+ 
+<script>
+ 
+$('#blink').each(function() {
+    var timing = 200;
+    var blinkCount = 3;
+ 
+    var elem = $(this);
+    var count = 1;
+ 
+    var intervalId = setInterval(function() {
+        if (elem.css('visibility') == 'hidden') {
+            elem.css('visibility', 'visible');
+            if (count++ === blinkCount) {
+                clearInterval(intervalId);
+            }
+        } else {
+            elem.css('visibility', 'hidden');
+        }   
+    }, timing);
+});
+</script>
