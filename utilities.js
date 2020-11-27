@@ -343,13 +343,28 @@ function strtoupper(x) {
   return x.toUpperCase();
 }
 
-  function ucfirst(string) {
-      return string.charAt(0).toUpperCase() + string.slice(1);
-  }
-  
-  function ucwords(str) {
-      return (str + '').replace(/^([a-z])|\s+([a-z])/g, function ($1) {
-          return $1.toUpperCase();
-      });
-  }
+function ucfirst(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
+function ucwords(str) {
+    return (str + '').replace(/^([a-z])|\s+([a-z])/g, function ($1) {
+        return $1.toUpperCase();
+    });
+}
+
+function count_ocurrences(str, value){
+    var regExp = new RegExp(value, "gi");
+    return str.match(regExp) ? str.match(regExp).length : 0;  
+}
+
+function count_ocurrences2(s, c) {
+    let count = 0;
+    c = c.charAt(0); // we save some time here
+    for(let i = 0; i < s.length; ++i) {
+        if(c === s.charAt(i)) {
+            ++count;
+        }
+    }
+    return count;
+}
