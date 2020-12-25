@@ -115,7 +115,7 @@ function get_float(x) {
 }
 
 
-function number_format (number, decimals, dec_point, thousands_sep) {
+function number_format(number, decimals, dec_point, thousands_sep) {
     // Strip all characters but numerical ones.
     number = (number + '').replace(/[^0-9+\-Ee.]/g, '');
     var n = !isFinite(+number) ? 0 : +number,
@@ -367,4 +367,16 @@ function count_ocurrences2(s, c) {
         }
     }
     return count;
+}
+
+function number_format2(n) {
+    if(Number.isInteger(n)) {
+      return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '.00'
+    }
+    else if(n.substr(-1) != '0') {
+      return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '0';
+    }
+    else {
+      return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
 }
