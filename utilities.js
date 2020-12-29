@@ -398,13 +398,12 @@ function number2words( n ) {
         end = start;
         chunks.push( string.slice( ( start = Math.max( 0, start - 3 ) ), end ) );
     }
-
     chunksLen = chunks.length;
     if( chunksLen > scales.length ) {
         return '';
     }
-
     words = [];
+
     for( i = 0; i < chunksLen; i++ ) {
         chunk = parseInt( chunks[i] );
 
@@ -434,6 +433,7 @@ function number2words( n ) {
     }
     return words.reverse().join( ' ' );
 }
+
 
 function init_cap ( text ) {
     return text.replace(/(&)?([a-z])([a-z]{2,})(;)?/ig,function ( all, prefix, letter, word, suffix ) {
