@@ -1,0 +1,20 @@
+<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyCSBvH1CjXKNAEHa1msyGpC4nzrlEyiUFE&libraries=places"></script>
+
+<script type="text/javascript">
+  function address_autocomplete_initialize() {
+    var autocomplete = new google.maps.places.Autocomplete(
+      (document.getElementById('the_address')),
+      { types: ['geocode'] }
+    );
+    google.maps.event.addListener(autocomplete, 'place_changed', function() {
+      var place = autocomplete.getPlace();
+      document.getElementById('the_address').innerHTML = place.formatted_address;
+      get_lat_long(place.formatted_address);
+      jQuery('.pac-container').hide();
+    });
+  }  
+</script>
+
+<body onload="address_autocomplete_initialize();">
+  Address/ Location<br /><input type="text" id="the_address" name="the_address" style="width: 400px;" /><br /><br />
+</body>
