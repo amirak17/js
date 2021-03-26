@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Place Demo</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="google-places.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSBvH1CjXKNAEHa1msyGpC4nzrlEyiUFE&libraries=places&signed_in=true&libraries=places"></script>
+    <link rel="stylesheet" href="https://rawgit.com/peledies/google-places/master/google-places.css">
+  </head>
+  <body>
+    <div id="google-reviews"></div>
+  </body>
+
+  <script>
+    $(document).ready(function() {
+
+      $("#google-reviews").googlePlaces({
+        placeId: 'ChIJCQnWRY6ipBIRWI18NnMnK6k',
+        min_rating: 4,
+        rows: 10,
+        max_rows: 10,
+        shorten_names: false
+      });
+
+    });
+  </script>
+</html>
