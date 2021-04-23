@@ -1,0 +1,20 @@
+
+<audio id="alarm" autoplay="autoplay" loop="loop" src="https://gtawebdevelopers.com/test/chess/ding.mp3" muted></audio>
+
+<button id="mute-button" onclick="toggleMute();">Unmute</button>
+
+<script type="text/javascript">
+function toggleMute() {
+	var a = document.getElementById('alarm')
+	var b = document.getElementById('mute-button')
+	if(a.muted) {
+		a.muted = false;
+		a.play();
+		b.innerHTML = 'Mute';
+	} 
+	else {
+		a.muted = true;
+		b.innerHTML = 'Unmute';
+	}
+} 	
+</script>
