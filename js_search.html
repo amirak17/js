@@ -1,0 +1,69 @@
+<script type="text/javascript">
+   function js_search(boxID, searchTable) {
+     var input, filter, table, tr, td, i, txtValue;
+     input = document.getElementById(boxID);
+     filter = input.value.toUpperCase();
+     table = document.getElementById(searchTable);
+     tr = table.getElementsByTagName("tr");
+     for (i = 0; i < tr.length; i++) {
+       td = tr[i].getElementsByTagName("td")[0];
+       if (td) {
+         txtValue = td.textContent || td.innerText;
+         if (txtValue.toUpperCase().indexOf(filter) > -1) {
+           tr[i].style.display = "";
+         } else {
+           tr[i].style.display = "none";
+         }
+       }       
+     }
+   }
+</script>
+
+<input type="text" id="search-files" placeholder="Search Files" onkeyup="js_search(this.id, 'files-list-table');" style="font-size: 16px; padding: 5px;" /><br /><br />
+<table id="files-list-table" cellspacing="0" cellpadding="20" border="1" style="border: 1px solid #ddd;">
+   <tr>
+      <th>Files</th>
+      <th>Upload Date & Times</th>
+      <th>File Size</th>
+   </tr>
+   <tr>
+      <td>AAPL</td>
+      <td>01-Mar-2021 01:27:34 am</td>
+      <td align="right">18,580</td>
+   </tr>
+   <tr>
+      <td>AMZN</td>
+      <td>10-Mar-2021 03:13:20 am</td>
+      <td align="right">19,953</td>
+   </tr>
+   <tr>
+      <td>Test-Time-Data</td>
+      <td>06-Apr-2021 05:36:49 pm</td>
+      <td align="right">89</td>
+   </tr>
+   <tr>
+      <td>bitcoin-data-cleaned</td>
+      <td>24-Feb-2021 03:03:59 pm</td>
+      <td align="right">258,326,573</td>
+   </tr>
+   <tr>
+      <td>cars</td>
+      <td>24-Feb-2021 03:07:53 pm</td>
+      <td align="right">922</td>
+   </tr>
+   <tr>
+      <td>null-test</td>
+      <td>19-Feb-2021 08:24:22 pm</td>
+      <td align="right">96</td>
+   </tr>
+   <tr>
+      <td>test</td>
+      <td>23-Feb-2021 02:06:17 am</td>
+      <td align="right">30,486</td>
+   </tr>
+   <tr>
+      <td>xy-values</td>
+      <td>19-Feb-2021 08:58:28 pm</td>
+      <td align="right">29</td>
+   </tr>
+</table>
