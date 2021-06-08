@@ -1,0 +1,35 @@
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+function autoScrollTo(el) {
+    var top = $("#" + el).offset().top;
+    $("html, body").animate({ scrollTop: top }, 2000);
+}
+</script>
+
+<ul class="main-nav">
+  <li><a href="#" onclick="return false;" onmousedown="autoScrollTo('about');">
+      About</a>
+  </li>
+  <li><a href="#" onclick="return false;" onmousedown="autoScrollTo('testimonials');">
+      Testimonials</a>
+  </li>
+  <li><a href="#" onclick="return false;" onmousedown="autoScrollTo('contact');">
+      Contact</a>
+  </li>
+</ul>
+
+<hr style="margin: 25em 0;" />
+
+<div id="about" class="navButton">
+  <p>About lorem ipsom....</p>
+</div>
+
+<div id="testimonials" class="navButton">
+  <p>Testimonial lorem ipsom....</p>
+</div>
+
+<div id="contact" class="navButton">
+  <p>Contact lorem ipsum</p>
+</div>
