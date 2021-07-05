@@ -1,0 +1,37 @@
+<script type="text/javascript">
+	
+function shortAlert(msg, duration, top, left) {
+	var el = document.createElement("div");
+	el.setAttribute("style","display: none; position: absolute; width: 200px; text-align: center; top: " + top + "%; left: " + left + "%; background-color: #444; color: white; padding: 25px; font-family: Arial; border-radius: 3px;");
+	el.innerHTML = msg;
+	fadeIn(el, 'block')	
+	setTimeout(function(){ fadeOut(el) }, duration);
+	document.body.appendChild(el);
+}
+
+function fadeOut(el) {
+    el.style.opacity = 1;
+    (function fade() {
+        if ((el.style.opacity -= .05) < 0) {
+            el.style.display = "none";
+        } else {
+            requestAnimationFrame(fade);
+        }
+    })();
+};
+
+function fadeIn(el, display) {
+    el.style.opacity = 0;
+    el.style.display = display || "block";
+    (function fade() {
+        var val = parseFloat(el.style.opacity);
+        if (!((val += .05) > 1)) {
+            el.style.opacity = val;
+            requestAnimationFrame(fade);
+        }
+    })();
+};
+
+</script>
+
+<body onload='shortAlert("Bookmark Saved", 3000, 20, 42.5);'></body>
