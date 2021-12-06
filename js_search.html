@@ -1,12 +1,12 @@
 <script type="text/javascript">
-   function js_search(boxID, searchTable) {
+   function js_search(boxID, searchTable, searchColumn) {
      var input, filter, table, tr, td, i, txtValue;
      input = document.getElementById(boxID);
      filter = input.value.toUpperCase();
      table = document.getElementById(searchTable);
      tr = table.getElementsByTagName("tr");
      for (i = 0; i < tr.length; i++) {
-       td = tr[i].getElementsByTagName("td")[0];
+       td = tr[i].getElementsByTagName("td")[searchColumn];
        if (td) {
          txtValue = td.textContent || td.innerText;
          if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -19,7 +19,7 @@
    }
 </script>
 
-<input type="text" id="search-files" placeholder="Search Files" onkeyup="js_search(this.id, 'files-list-table');" style="font-size: 16px; padding: 5px;" /><br /><br />
+<input type="text" id="search-files" placeholder="Search Files" onkeyup="js_search(this.id, 'files-list-table', 0);" style="font-size: 16px; padding: 5px;" /><br /><br />
 <table id="files-list-table" cellspacing="0" cellpadding="20" border="1" style="border: 1px solid #ddd;">
    <tr>
       <th>Files</th>
