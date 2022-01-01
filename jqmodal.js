@@ -16,7 +16,7 @@
 
         <div id="div-shipping-address" style="display: none; height: 485px;" class="modal-div">
           <span style="color: #fff; float: right; margin-top: -18px; margin-right: 0px; font-size: 30px; cursor: pointer;" onclick="hideModal(); return false;">&times</span><br />
-            <iframe id="show_saved_contacts" src="<?php echo SITE_PATH?>change-shipping-address" scrolling="no" style="border: 0px; width: 100%; height: 91%; z-index: 9999; overflow: hidden;" ></iframe>  
+            <iframe src="x.ext" scrolling="no" style="border: 0px; width: 100%; height: 91%; z-index: 9999; overflow: hidden;" ></iframe>  
         </div>
 
     - Please feel free to make changes as per your need for improvements and contact me to 
