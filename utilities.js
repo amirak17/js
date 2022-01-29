@@ -387,3 +387,16 @@ function strpos (haystack, needle, offset) {
   return i === -1 ? false : i;
 }
 
+function remove_commas_str(x) {
+    var arr = explode(',', x);
+    var str = '';
+    for(var i = 0; i < arr.length; i++) {
+        if(arr[i] != '') {
+            str+=arr[i]+',';
+        }
+    }
+    str = str.substr(0, (str.length)-1);
+    return str;
+}
+
+
