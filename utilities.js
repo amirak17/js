@@ -387,6 +387,7 @@ function strpos (haystack, needle, offset) {
   return i === -1 ? false : i;
 }
 
+
 function remove_commas_str(x) {
     var arr = explode(',', x);
     var str = '';
@@ -399,4 +400,8 @@ function remove_commas_str(x) {
     return str;
 }
 
-
+function youtube_get_v_part(url){
+    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+    var match = url.match(regExp);
+    return (match&&match[7].length==11)? match[7] : false;
+}
