@@ -1,6 +1,8 @@
 // Utility Functions
 
-function cl(x) { console.log(x); }
+function cl(x) {
+  console.log(x);
+}
 
 function detect_browser() { // basic
   var ua = window.navigator.userAgent;
