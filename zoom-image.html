@@ -1,0 +1,18 @@
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<img style="cursor: pointer;" src="https://ae01.alicdn.com/kf/Sb0d93026971a43ca8006d4efbf482360s/BROWON-Long-Sleeve-T-Shirt-Men-Spring-and-Autumn-Business-Casual-Slim-Turn-down-Collar-Geometric.jpg_640x640.jpg" width="100" onclick="zoomImage('https://ae01.alicdn.com/kf/Sb0d93026971a43ca8006d4efbf482360s/BROWON-Long-Sleeve-T-Shirt-Men-Spring-and-Autumn-Business-Casual-Slim-Turn-down-Collar-Geometric.jpg_640x640.jpg'); return false;" />
+
+<!-- 
+for php 
+<img src="'.$arr[$i].'" width="100" onclick="zoomImage(\''.$arr[$i].'\'); return false;" />
+-->
+
+<script type="text/javascript">
+	function zoomImage(x) {
+		var xOut = '<span style="float: right; cursor: pointer; font-size: 30px; padding: 5px 14px; margin: 5px; color: black; background-color: white; border: 1px solid #ddd;" onclick=jQuery("#zoomedImage").hide();>&times</span><br />';
+		jQuery('#zoomedImage').html(xOut+'<img src='+x+'  />');
+		jQuery("#zoomedImage").show();
+	}
+</script>
+<div id="zoomedImage" style="position: absolute; top: 50px; left: 300px; display: none;"></div>
+
