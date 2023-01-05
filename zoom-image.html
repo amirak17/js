@@ -10,10 +10,10 @@ for php
 
 <script type="text/javascript">
 	jQuery( function() { jQuery("#zoomedImage").draggable(); });
-	
+
 	function zoomImage(x) {
 		var xOut = '<span style="float: right; cursor: pointer; font-size: 30px; padding: 5px 14px; margin: 5px; color: black; background-color: white; border: 1px solid #ddd;" onclick=jQuery("#zoomedImage").hide();>&times</span><br />';
-		jQuery('#zoomedImage').html(xOut+'<img src='+x+'  />');
+		jQuery('#zoomedImage').html(xOut+'<img src='+x+' style="cursor: pointer;" />');
 		jQuery("#zoomedImage").show();
 	}
 </script>
