@@ -1,4 +1,5 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
 <img style="cursor: pointer;" src="https://ae01.alicdn.com/kf/Sb0d93026971a43ca8006d4efbf482360s/BROWON-Long-Sleeve-T-Shirt-Men-Spring-and-Autumn-Business-Casual-Slim-Turn-down-Collar-Geometric.jpg_640x640.jpg" width="100" onclick="zoomImage('https://ae01.alicdn.com/kf/Sb0d93026971a43ca8006d4efbf482360s/BROWON-Long-Sleeve-T-Shirt-Men-Spring-and-Autumn-Business-Casual-Slim-Turn-down-Collar-Geometric.jpg_640x640.jpg'); return false;" />
 
@@ -8,6 +9,8 @@ for php
 -->
 
 <script type="text/javascript">
+	jQuery( function() { jQuery("#zoomedImage").draggable(); });
+	
 	function zoomImage(x) {
 		var xOut = '<span style="float: right; cursor: pointer; font-size: 30px; padding: 5px 14px; margin: 5px; color: black; background-color: white; border: 1px solid #ddd;" onclick=jQuery("#zoomedImage").hide();>&times</span><br />';
 		jQuery('#zoomedImage').html(xOut+'<img src='+x+'  />');
