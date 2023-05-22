@@ -1,0 +1,21 @@
+
+<div class="specific">
+  <h1>Test Screenshot Heading</h1>
+  <p>Test Screenshot Para 1</p>
+  <p>Test Screenshot Para 2</p>
+  <p>Test Screenshot Para 3</p>
+</div>
+
+<button onclick="takeScreenshot('body')">Page Screenshot</button>
+<button onclick="takeScreenshot('.specific')">Div Screenshot</button>
+
+<script src="screenshot.js"></script>
+<script>
+function takeScreenshot(query_Selector) {
+  html2canvas(document.querySelector(query_Selector), {
+    onrendered: function (canvas) {
+      return Canvas2Image.saveAsPNG(canvas);
+    } 
+  });
+}
+</script>
