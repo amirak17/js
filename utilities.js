@@ -405,3 +405,41 @@ function youtube_get_v_part(url){
     var match = url.match(regExp);
     return (match&&match[7].length==11)? match[7] : false;
 }
+
+
+function SlideDown(x) {
+  const element = document.getElementById(x);
+  let top = 0;
+  const up = setInterval(MoveDown, 10);
+
+  function MoveDown() {
+    if (top == 50) {
+      clearInterval(up);
+    } else {
+      top++;
+      element.style.top = top + '%';
+    }
+  }
+}
+
+function SlideUp(x) {
+  const element = document.getElementById(x);
+  let top = parseInt(element.style.top);
+  const down = setInterval(MoveUp, 10);
+
+  function MoveUp() {
+
+    if (top == -100) {
+      clearInterval(down);
+    } else {
+      top--;
+      element.style.top = top + '%';
+    }
+  }
+}
+
+function validateEmail(email) {
+  var re = /\S+@\S+\.\S+/;
+  return re.test(email);
+}
+
