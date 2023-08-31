@@ -1,0 +1,30 @@
+
+<script type="text/javascript">
+	function valthis() {
+	var checkBoxes = document.getElementsByClassName( 'categ_cbs' );
+	var isChecked = false;
+	    for (var i = 0; i < checkBoxes.length; i++) {
+	        if ( checkBoxes[i].checked ) {
+	            isChecked = true;
+	        };
+	    };
+	    if ( isChecked ) {
+	        alert( 'At least one checkbox checked!' );
+	        } else {
+	            alert( 'Please, check at least one checkbox!' );
+	        }   
+	}	
+</script>
+
+Please select at least one Checkbox
+<br>
+<br>
+<form name = "FC" id = "myForm">
+<input type = "checkbox" class='myCheckBox' name = "c1" value = "c1"> C1 <br>
+<input type = "checkbox" class='myCheckBox'name = "c1" value = "c2"> C2 <br>
+<input type = "checkbox" class='myCheckBox' name = "c1" value = "c3"> C3 <br>
+<input type = "checkbox" class='myCheckBox' name = "c1" value = "c4"> C4 <br>
+</form>
+<br>
+<br>
+<input type = "button" value = "Edit and Report" onClick="valthis()">
