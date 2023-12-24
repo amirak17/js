@@ -443,3 +443,7 @@ function validateEmail(email) {
   return re.test(email);
 }
 
+function get_float_decimal(n) {
+  var n = parseFloat(n.match(/-?(?:\d+(?:\.\d*)?|\.\d+)/)[0]);          
+  return n.toFixed(2);
+}    
