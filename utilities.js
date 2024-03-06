@@ -447,3 +447,22 @@ function get_float_decimal(n) {
   var n = parseFloat(n.match(/-?(?:\d+(?:\.\d*)?|\.\d+)/)[0]);          
   return n.toFixed(2);
 }    
+
+
+function dates_diff_days(a, b) {
+  const _MS_PER_DAY = 1000 * 60 * 60 * 24;
+  // Discard the time and time-zone information.
+  var a = new Date(document.getElementById(a).value);
+  var b = new Date(document.getElementById(b).value);
+  const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+  const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());  
+  return Math.floor((utc2 - utc1) / _MS_PER_DAY)+1;
+}
+
+function upload_size_check(el, sz) {
+  if(document.getElementById(el).files[0].size > sz) {
+      document.getElementById(el).value = '';
+      return false;
+  }
+  return true;
+}
