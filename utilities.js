@@ -388,6 +388,10 @@ function strpos (haystack, needle, offset) {
 }
 
 
+function random_int_interval(min, max) { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 function remove_commas_str(x) {
     var arr = explode(',', x);
     var str = '';
@@ -466,3 +470,33 @@ function upload_size_check(el, sz) {
   }
   return true;
 }
+
+
+function js_date_format(d) {
+  const date_tmp = new Date(d);
+
+  let day = ordinal_suffix(date_tmp.getDate());
+  let year = date_tmp.getFullYear();
+  
+  let month = date_tmp.getMonth();
+  const month_arr = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  let month_name = month_arr[date_tmp.getMonth()];
+
+  return month_name + ' ' + day + ', ' + year;
+}
+
+function ordinal_suffix(i) {
+  let j = i % 10,
+  k = i % 100;
+  if (j === 1 && k !== 11) {
+    return i + "st";
+  }
+  if (j === 2 && k !== 12) {
+    return i + "nd";
+  }
+  if (j === 3 && k !== 13) {
+    return i + "rd";
+  }
+  return i + "th";
+}
+
