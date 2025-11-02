@@ -1,22 +1,30 @@
 <script type="text/javascript">
-   function js_search(boxID, searchTable, searchColumn) {
-     var input, filter, table, tr, td, i, txtValue;
-     input = document.getElementById(boxID);
-     filter = input.value.toUpperCase();
-     table = document.getElementById(searchTable);
-     tr = table.getElementsByTagName("tr");
-     for (i = 0; i < tr.length; i++) {
-       td = tr[i].getElementsByTagName("td")[searchColumn];
-       if (td) {
-         txtValue = td.textContent || td.innerText;
-         if (txtValue.toUpperCase().indexOf(filter) > -1) {
-           tr[i].style.display = "";
-         } else {
-           tr[i].style.display = "none";
-         }
-       }       
-     }
-   }
+    function js_search(boxID, searchTable) {
+      var input, filter, table, tr, td, i, j, found;
+      input = document.getElementById(boxID);
+      filter = input.value.toUpperCase();
+      table = document.getElementById(searchTable);
+      tr = table.getElementsByTagName("tr");
+
+      for (i = 1; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td");
+        found = false;
+        for (j = 0; j < td.length; j++) {
+          if (td[j]) {
+            if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+              found = true;
+              break;
+            }
+          }
+        }
+
+        if (found) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
 </script>
 
 <input type="text" id="search-files" placeholder="Search Files" onkeyup="js_search(this.id, 'files-list-table', 0);" style="font-size: 16px; padding: 5px;" /><br /><br />
